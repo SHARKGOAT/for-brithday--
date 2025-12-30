@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Ridha</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0b0d12;
+  --panel: #121622;
+  --accent: #00e5ff;
+  --soft: rgba(0,229,255,0.15);
+  --text: #e6e9f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(180deg, #090b10, #0b0d12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+}
+
+/* MAIN CARD */
+.card {
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 60px 80px;
+  width: 420px;
+  text-align: center;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.6),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+
+/* HEADER */
+.subtitle {
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  color: #8b93a7;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+/* GIFT */
+.gift {
+  position: relative;
+  width: 160px;
+  height: 140px;
+  margin: auto;
+  cursor: pointer;
+}
+
+/* BOX */
+.box {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(145deg, #161b2e, #101425);
+  border-radius: 14px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+/* ACCENT LINE */
+.box::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+/* LID */
+.lid {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 36px;
+  background: linear-gradient(145deg, #1b2240, #141a34);
+  border-radius: 14px;
+  transform-origin: bottom;
+  transition: transform 0.9s cubic-bezier(.4,0,.2,1);
+}
+
+/* NAME */
+.name {
+  position: absolute;
+  bottom: 38px;
+  width: 100%;
+  font-size: 0.85rem;
+  letter-spacing: 4px;
+  text-align: center;
+  color: var(--accent);
+}
+
+/* OPEN */
+.gift.open .lid {
+  transform: rotateX(115deg);
+}
+
+/* MESSAGE */
+.message {
+  margin-top: 40px;
+  font-size: 1.5rem;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.8s ease;
+}
+
+.message.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* CTA */
+.hint {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: #7a8299;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="subtitle">PRIVATE EVENT</div>
+  <div class="title">Happy Birthday</div>
+
+  <div class="gift" id="gift" onclick="openGift()">
+    <div class="lid"></div>
+    <div class="box"></div>
+    <div class="name">RIDHA</div>
+  </div>
+
+  <div class="message" id="msg">
+    Wishing you a year of growth, success,<br>and great moments 🎉
+  </div>
+
+  <div class="hint">Click the gift</div>
+</div>
+
+<audio id="music">
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_50c0b45d7b.mp3">
+</audio>
+
+<script>
+function openGift() {
+  document.getElementById("gift").classList.add("open");
+  document.getElementById("msg").classList.add("show");
+  document.getElementById("music").play();
+}
+</script>
+
+</body>
+</html>
